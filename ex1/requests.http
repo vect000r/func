@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/input
+Content-Type: application/json
+
+{
+  "nums": [7, 65, 3, 54, 1, 8, 0, 210]
+}
+###
+GET http://localhost:8080/isSorted
+###
