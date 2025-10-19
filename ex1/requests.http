@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8080/input
+POST http://localhost:8080/is-sorted
 Content-Type: application/json
 
 {
