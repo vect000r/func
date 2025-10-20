@@ -26,6 +26,28 @@ object Main extends cask.MainRoutes:
     }
   }
 
+  @cask.postJson("/sum-three")
+  def sumThree(list1: List[Int], list2: List[Int], list3: List[Int]): ujson.Obj = {
+    //TODO
+    ???
+  }
 
+  @cask.postJson("/set-head")
+  def setHead(list: List[Int], element: Int): ujson.Obj ={
+    //TODO
+    ???
+  }
+
+  @cask.postJson("/append")
+  def append(list: List[Int], index: Int): ujson.Obj = {
+    //TODO
+    ???
+  }
+
+  @cask.postJson("/two-square")
+  def twoSquare(list1: List[Int], list2: List[Int]): ujson.Obj = {
+    //TODO
+    ???
+  }
 
   initialize()
