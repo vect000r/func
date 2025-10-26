@@ -28,9 +28,9 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/sum-three")
   def sumThree(list1: List[Int], list2: List[Int], list3: List[Int]): ujson.Obj = {
-    def f(a: List[Int], b: List[Int]): List[Int] = {
+    def f(a: List[Int], b: List[Int]): List[Int] =
       for ((a, b) <- a.zip(b)) yield a + b
-    }
+
     
     ujson.Obj(
       "input" -> ujson.Arr(list1, list2, list3),
@@ -61,7 +61,7 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/two-square")
   def twoSquare(list1: List[Int], list2: List[Int]): ujson.Obj = {
-    val newList = list1.zip(list2).map((x, y) => x * y)
+    val newList = list1.zip(list2).map((x, y) => x * x + y * y)
 
     ujson.Obj(
       "input" -> ujson.Arr(list1, list2),
