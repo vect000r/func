@@ -40,8 +40,12 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/set-head")
   def setHead(list: List[Int], element: Int): ujson.Obj ={
-    //TODO
-    ???
+    val new_list = element +: list
+
+    ujson.Obj(
+      "input" -> ujson.Arr(list, element),
+      "setHead result" -> new_list
+    )
   }
 
   @cask.postJson("/append")
