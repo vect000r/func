@@ -61,8 +61,12 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/two-square")
   def twoSquare(list1: List[Int], list2: List[Int]): ujson.Obj = {
-    //TODO
-    ???
+    val newList = list1.zip(list2).map((x, y) => x * y)
+
+    ujson.Obj(
+      "input" -> ujson.Arr(list1, list2),
+      "two-square result" -> newList
+    )
   }
 
   initialize()

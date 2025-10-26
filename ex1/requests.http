@@ -32,7 +32,12 @@ Content-Type: application/json
   "index": 3,
   "element": 5
 }
+###
+POST http://localhost:8080/two-square
+Content-Type: application/json
 
-###
-GET http://localhost:8080/is-sorted
-###
+{
+  "list1": [7, 65, 3, 54, 1, 8, 0, 210],
+  "list2": [2, 5, 31, 43, 16, 98, 1000, 10]
+}
+
