@@ -40,18 +40,23 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/set-head")
   def setHead(list: List[Int], element: Int): ujson.Obj ={
-    val new_list = element +: list
+    val newList = element +: list
 
     ujson.Obj(
       "input" -> ujson.Arr(list, element),
-      "setHead result" -> new_list
+      "setHead result" -> newList
     )
   }
 
   @cask.postJson("/append")
-  def append(list: List[Int], index: Int): ujson.Obj = {
-    //TODO
-    ???
+  def append(list: List[Int], index: Int, element: Int): ujson.Obj = {
+    val (seg1, seg2) = list.splitAt(index)
+    val newList = seg1 ++ List(element) ++ seg2
+
+    ujson.Obj(
+      "input" -> ujson.Arr(list, index, element),
+      "append result" -> newList
+    )
   }
 
   @cask.postJson("/two-square")
