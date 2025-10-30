@@ -8,4 +8,7 @@ RUN apt-get install -y scala
 
 RUN scala --version
 
+RUN python3 --version
+
+RUN javac -version
 
