@@ -12,7 +12,7 @@ object Main extends cask.MainRoutes:
   def performTail(list: LinkedList[Int]): ujson.Obj =
     ujson.Obj(
       "Input" -> list,
-      "Result of performing tail on input list" -> list.tail()
+      "Result of performing tail on input list" -> list.tail().toList()
     )
   
   
