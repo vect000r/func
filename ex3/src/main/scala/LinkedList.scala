@@ -30,6 +30,22 @@ class LinkedList[A] {
 
     result.toList
   }
+
+  def drop(n: Int): LinkedList[A] = {
+    var current = head
+    var count = 0
+    
+    while (count < n && current.isDefined) {
+      current = current.get.next
+      count += 1
+    }
+    
+    val result = new LinkedList[A]
+    result.head = current
+    result
+  }
+
+
 }
 
 object LinkedList {
