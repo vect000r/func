@@ -9,15 +9,14 @@ object Main extends cask.MainRoutes:
   override def port = 8080
 
   @cask.postJson("/tail")
-  def performTail(list: LinkedList[Int]): ujson.Obj =
+  def performTail(inputList: List[Int]): ujson.Obj = {
+    val list = LinkedList.fromList(inputList)
+
     ujson.Obj(
-      "Input" -> list,
+      "Input" -> inputList,
       "Result of performing tail on input list" -> list.tail().toList()
     )
-  
-  
-  
-  
-  
-  
+  }
+
+
   initialize()

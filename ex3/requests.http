@@ -1,4 +1,8 @@
-### GET request to example server
-GET http://localhost:8080/greeting
+### POST 3.0
+POST http://localhost:8080/tail
+Content-Type: application/json
 
+{
+  "inputList": [7, 65, 3, 54, 1, 8, 0, 210]
+}
 ###
