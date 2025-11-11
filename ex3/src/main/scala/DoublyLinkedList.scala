@@ -79,9 +79,66 @@ class DoublyLinkedList[A] {
 
     accumulator
   }
+
+  def concatenate(other: DoublyLinkedList[A]): DoublyLinkedList[A] = {
+    // Case 1: if the first list is empty, return the other
+    if (head.isEmpty) {
+      val result = new DoublyLinkedList[A]
+      result.head = other.head
+      result.tail = other.tail
+      return result
+    }
+
+    // Case 2: if the second list is empty, return the other
+    if (other.head.isEmpty) {
+      val result = new DoublyLinkedList[A]
+      result.head = this.head
+      result.tail = this.tail
+      return result
+    }
+
+    // Case 3: both lists not empty
+    val result = new DoublyLinkedList[A]
+
+    // make a deep copy of the first list
+    val firstCopy = copyList(this.head)
+    result.head = firstCopy._1
+    val lastOfFirst = firstCopy._2
+
+    // make a deep copy of the second list
+    val secondCopy = copyList(other.head)
+    val firstOfSecond = secondCopy._1
+    result.tail = secondCopy._2
+
+    // concatenate last node of the first list with the first node of the second list
+    lastOfFirst.foreach { last =>
+      last.next = firstOfSecond
+      firstOfSecond.foreach(_.prev = Some(last))
+    }
+
+    result
+  }
+
+  // helper function for copying lists, as we want to preserve immutability
+  private def copyList(start: Option[Node[A]]): (Option[Node[A]], Option[Node[A]]) = {
+    if (start.isEmpty) return (None, None)
+
+    val firstNode = Node(start.get.element, None, None)
+    var current = start.get.next
+    var currentCopy = firstNode
+
+    while (current.isDefined) {
+      val newNode = Node(current.get.element, None, Some(currentCopy))
+      currentCopy.next = Some(newNode)
+      currentCopy = newNode
+      current = current.get.next
+    }
+
+    (Some(firstNode), Some(currentCopy))
+  }
+
+
 }
-
-
 
 
 object DoublyLinkedList {

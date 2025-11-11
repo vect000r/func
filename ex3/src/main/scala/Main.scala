@@ -52,13 +52,21 @@ object Main extends cask.MainRoutes:
       "Length" -> DoublyLinkedList.length(list)
     )
   }
-  
+
   @cask.postJson("/concatenate")
   def performConcatenate(inputList1: List[Int], inputList2: List[Int]): ujson.Obj = {
-    // TODO
-    ???
-  }
+    val list1 = DoublyLinkedList.fromList(inputList1)
+    val list2 = DoublyLinkedList.fromList(inputList2)
 
+    val result = list1.concatenate(list2)
+
+    ujson.Obj(
+      "Input list 1" -> inputList1,
+      "Input list 2" -> inputList2,
+      "Result of concatenating lists" -> result.toList()
+    )
+  }
+  
   private def parseCondition(condition: String): Int => Boolean = {
     val parts = condition.trim.split(" ")
 

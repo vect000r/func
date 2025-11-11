@@ -28,4 +28,11 @@ Content-Type: application/json
 {
   "inputList": [7, 65, 3, 54, 1, 8, 0, 210]
 }
-###
+### POST 5.0
+POST http://localhost:8080/concatenate
+Content-Type: application/json
+
+{
+  "inputList1": [7, 65, 3, 54, 1, 8, 0, 210],
+  "inputList2": [87, 4, 5, 34, 66, 3, 7, 9]
+}
