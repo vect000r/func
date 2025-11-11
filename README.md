@@ -37,7 +37,6 @@ https://github.com/user-attachments/assets/244ade91-155e-4d06-9fed-91df97af7b99
 
 **Zadanie 3**
 
-Endpointy, które
 :white_check_mark: 3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy (parameter); należy rozważyć przypadek Nil jako parametr [Link do commita](https://github.com/vect000r/func/commit/58acb916fe9dcc90b65e7a9698a1a7ed4ce6ba45)
 
 :white_check_mark: 3.5 zwróci wynik funkcji drop, która usuwa n elementów z listy dwukierunkowej [Link do commita](https://github.com/vect000r/func/commit/f8b04d23fb685f0b332f7428e6a6efbff9c8f047)
