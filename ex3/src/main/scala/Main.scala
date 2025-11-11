@@ -40,11 +40,17 @@ object Main extends cask.MainRoutes:
       "Result of performing dropWhile on input list" -> list.dropWhile(predicate).toList()
     )
   }
-  
+
   @cask.postJson("/foldLeft")
-  def performDropLeft(inputList: List[Int]): ujson.Obj = {
-    // TODO
-    ???
+  def performFoldLeft(inputList: List[Int]): ujson.Obj = {
+    val list = DoublyLinkedList.fromList(inputList)
+
+    ujson.Obj(
+      "Input" -> inputList,
+      "Sum" -> DoublyLinkedList.sum(list),
+      "Product" -> DoublyLinkedList.product(list),
+      "Length" -> DoublyLinkedList.length(list)
+    )
   }
   
   @cask.postJson("/concatenate")

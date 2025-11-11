@@ -66,6 +66,19 @@ class DoublyLinkedList[A] {
 
     result.toList
   }
+
+  def foldLeft[B](z: B)(f: (B, A) => B): B = {
+    var current = head
+    var accumulator = z
+
+    while (current.isDefined) {
+      val node = current.get
+      accumulator = f(accumulator, node.element)
+      current = node.next
+    }
+
+    accumulator
+  }
 }
 
 
@@ -91,4 +104,18 @@ object DoublyLinkedList {
     result.tail = Some(currentNode)
     result
   }
+
+  def sum(list: DoublyLinkedList[Int]): Int = {
+    list.foldLeft(0)((acc, elem) => acc + elem)
+  }
+
+  def product(list: DoublyLinkedList[Int]): Int = {
+    list.foldLeft(1)((acc, elem) => acc * elem)
+  }
+
+  def length[A](list: DoublyLinkedList[A]): Int = {
+    list.foldLeft(0)((acc, _) => acc + 1)
+  }
+
+
 }
