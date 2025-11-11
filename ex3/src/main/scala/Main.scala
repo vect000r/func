@@ -10,17 +10,17 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/tail")
   def performTail(inputList: List[Int]): ujson.Obj = {
-    val list = LinkedList.fromList(inputList)
+    val list = DoublyLinkedList.fromList(inputList)
 
     ujson.Obj(
       "Input" -> inputList,
-      "Result of performing tail on input list" -> list.tail().toList()
+      "Result of performing tail on input list" -> list.get_tail().toList()
     )
   }
 
   @cask.postJson("/drop")
   def performDrop(inputList: List[Int], n: Int): ujson.Obj = {
-    val list = LinkedList.fromList(inputList)
+    val list = DoublyLinkedList.fromList(inputList)
 
     ujson.Obj(
       "Input" -> inputList,
@@ -28,12 +28,18 @@ object Main extends cask.MainRoutes:
       "Result of performing drop on input list" -> list.drop(n).toList()
     )
   }
-  
+
   @cask.postJson("/dropWhile")
-  def performDropWhile(inputList: List[Int], n: Int, condition: String): ujson.Obj = {
-    // TODO
-    ???
-  } 
+  def performDropWhile(inputList: List[Int], condition: String): ujson.Obj = {
+    val list = DoublyLinkedList.fromList(inputList)
+    val predicate = parseCondition(condition)
+
+    ujson.Obj(
+      "Input" -> inputList,
+      "Condition" -> condition,
+      "Result of performing dropWhile on input list" -> list.dropWhile(predicate).toList()
+    )
+  }
   
   @cask.postJson("/foldLeft")
   def performDropLeft(inputList: List[Int]): ujson.Obj = {
@@ -45,6 +51,27 @@ object Main extends cask.MainRoutes:
   def performConcatenate(inputList1: List[Int], inputList2: List[Int]): ujson.Obj = {
     // TODO
     ???
+  }
+
+  private def parseCondition(condition: String): Int => Boolean = {
+    val parts = condition.trim.split(" ")
+
+    if (parts.length != 2) {
+      throw new IllegalArgumentException(s"Invalid condition format: $condition. Expected format: '< 5' or '> 3'")
+    }
+
+    val operator = parts(0)
+    val value = parts(1).toInt
+
+    operator match {
+      case "<" => (x: Int) => x < value
+      case ">" => (x: Int) => x > value
+      case "<=" => (x: Int) => x <= value
+      case ">=" => (x: Int) => x >= value
+      case "==" => (x: Int) => x == value
+      case "!=" => (x: Int) => x != value
+      case _ => throw new IllegalArgumentException(s"Unknown operator: $operator")
+    }
   }
 
   initialize()
