@@ -16,7 +16,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file("."))
-  .aggregate(ex1, ex3)
+  .aggregate(ex1, ex3, ex4)
   .settings(name := "func-exercises")
 
 lazy val ex1 = (project in file("ex1"))
@@ -26,3 +26,7 @@ lazy val ex1 = (project in file("ex1"))
 lazy val ex3 = (project in file("ex3"))
   .settings(commonSettings)
   .settings(name := "ex3")
+
+lazy val ex4 = (project in file("ex4"))
+  .settings(commonSettings)
+  .settings(name := "ex4")
