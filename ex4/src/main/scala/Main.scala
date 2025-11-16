@@ -38,7 +38,7 @@ object Main extends cask.MainRoutes:
     ???
   }
   
-  @cask.post("/map")
+  @cask.postJson("/map")
   def map(list: List[Int]): ujson.Obj = {
     // TODO
     ???
