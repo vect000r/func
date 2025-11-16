@@ -9,9 +9,21 @@ object Main extends cask.MainRoutes:
   override def port = 8080
 
   @cask.postJson("/append")
-  def append(list: List[Int], index: Int): ujson.Obj = {
-    // TODO
-    ???
+  def append(list: List[Int], index: Int, element: Int): ujson.Obj = {
+    val result: Option[List[Int]] = {
+      val (seg1, seg2) = list.splitAt(index)
+      Some(seg1 ++ List(element) ++ seg2)
+    }
+
+    result match {
+      case Some(newList) => ujson.Obj(
+        "input" -> ujson.Arr(list, index, element),
+        "append result" -> newList
+      )
+      case None => ujson.Obj(
+        "Error" -> "Option returned None!"
+      )
+    }
   }
 
   @cask.postJson("/variation")

@@ -1,5 +1,38 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+### POST 3.0
+POST http://localhost:8080/append
+Content-Type: application/json
 
-###
+{
+  "inputList": [7, 65, 3, 54, 1, 8, 0, 210],
+  "index": 3
+}
+### POST 3.5
+POST http://localhost:8080/variation
+Content-Type: application/json
+
+{
+  "inputList": [7, 65, 3, 54, 1, 8, 0, 210]
+}
+### POST 4.0
+POST http://localhost:8080/concat
+Content-Type: application/json
+
+{
+  "inputList1": [7, 65, 3, 54, 1, 8, 0, 210],
+  "inputList2": [87, 4, 5, 34, 66, 3, 7, 9]
+
+}
+### POST 4.5
+POST http://localhost:8080/map
+Content-Type: application/json
+
+{
+  "inputList": [7, 65, 3, 54, 1, 8, 0, 210]
+}
+### POST 5.0
+POST http://localhost:8080/mean
+Content-Type: application/json
+
+{
+  "inputList1": [7, 65, 3, 54, 1, 8, 0, 210]
+}
