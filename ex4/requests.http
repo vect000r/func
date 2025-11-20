@@ -8,11 +8,11 @@ Content-Type: application/json
   "element": 4
 }
 ### POST 3.5
-POST http://localhost:8080/variation
+POST http://localhost:8080/variance
 Content-Type: application/json
 
 {
-  "inputList": [7, 65, 3, 54, 1, 8, 0, 210]
+  "list": [7, 65, 3, 54, 1, 8, 0, 210]
 }
 ### POST 4.0
 POST http://localhost:8080/concat

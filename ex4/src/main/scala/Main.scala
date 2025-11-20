@@ -26,10 +26,22 @@ object Main extends cask.MainRoutes:
     }
   }
 
-  @cask.postJson("/variation")
-  def variation(list: List[Int]): ujson.Obj = {
-    // TODO
-    ???
+  @cask.postJson("/variance")
+  def variance(list: List[Int]): ujson.Obj = {
+    val varianceOption: Option[Double] = for {
+      x <- if (list.nonEmpty) Some(()) else None
+
+      mean = list.sum.toDouble / list.length
+      squares = list.map(x => Math.pow(x - mean, 2)).sum
+      variance = squares / mean
+    } yield variance
+
+    varianceOption match {
+      case Some(variance) => ujson.Obj("input" -> list, "variance" -> variance)
+      case None => ujson.Obj("error" -> "Cannot calculate variance for empty list")
+    }
+
+
   }
 
   @cask.postJson("/concat")
