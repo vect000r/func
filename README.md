@@ -50,3 +50,18 @@ Kod: [Link do zadania 3](https://github.com/vect000r/func/tree/master/ex3/src/ma
 
 https://github.com/user-attachments/assets/559dac0c-6c2d-42fb-a601-1933556bfee0
 
+**Zadanie 4**
+
+:white_check_mark: 3.0 zwróci taki sam wynik jak zad.1 4.5 ale wykorzysta typ opcjonalny [Link do commita](https://github.com/vect000r/func/commit/ddd813630bcb7289932c7585f3a059d25c805ae5)
+
+:white_check_mark: 3.5 zwroci wariancję z listy; do implementacji wykorzystać należy typ opcjonalny [Link do commita](https://github.com/vect000r/func/commit/bb5c7217a484125d20e5e23976b25a1c3893fb3f)
+
+:x: 4.0 zwróci listę (option), która jest wynikiem połączenia dwóch list (option); w przypadku gdy jedna z list jest None, funkcja powinna zwrócić None
+
+:x: 4.5 zwróci listę za pomocą metody mojeMap[A,B,C](a: Option[A], b: Option[B])(f:(A,B)=>C):Option[C]; należy wykorzystać metodę flatMap oraz map
+
+:x: 5.0 zwróci taki średnią (mean) z listy zwracając Either
+Kod: [Link do zadania 3](https://github.com/vect000r/func/tree/master/ex4/src/main/scala)
+
+https://github.com/user-attachments/assets/933d07d3-e0c7-4511-9aee-c1be6becf250
+
