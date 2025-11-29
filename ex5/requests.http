@@ -1,0 +1,7 @@
+### POST 3.0
+POST http://localhost:8080/dict
+Content-Type: application/json
+
+{
+  "list": [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+}
