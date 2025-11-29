@@ -14,7 +14,6 @@ object Main extends cask.MainRoutes:
     val counts = list.groupMapReduce(identity)(_ => 1)(_ + _)
 
     ujson.Obj(
-      "input" -> list,
       "counts" -> ujson.Obj(
         "input" -> list,
         "counts" -> counts.map { case (k, v) => (k.toString, v) }
@@ -34,13 +33,13 @@ object Main extends cask.MainRoutes:
     ???
   }
 
-  @cask.postJson("/dict")
+  @cask.postJson("/dictVector")
   def getDictVector(list: List[Int]): ujson.Obj = {
     // TODO
     ???
   }
 
-  @cask.postJson("/dict")
+  @cask.postJson("/dictGrades")
   def getDictGrades(indices: List[Int], grades: List[Int]): ujson.Obj = {
     // TODO
     ???
