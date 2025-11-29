@@ -1,6 +1,7 @@
 package org.func.ex5
 
 import cask.MainRoutes
+import ujson.Arr.from
 import upickle.core.BufferedValue.False
 
 
@@ -10,8 +11,15 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/dict")
   def getDict(list: List[Int]): ujson.Obj = {
-    // TODO
-    ???
+    val counts = list.groupMapReduce(identity)(_ => 1)(_ + _)
+
+    ujson.Obj(
+      "input" -> list,
+      "counts" -> ujson.Obj(
+        "input" -> list,
+        "counts" -> counts.map { case (k, v) => (k.toString, v) }
+      )
+    )
   }
 
   @cask.postJson("/dict3")
