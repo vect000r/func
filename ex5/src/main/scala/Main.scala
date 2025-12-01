@@ -23,10 +23,16 @@ object Main extends cask.MainRoutes:
 
   @cask.postJson("/dict3")
   def getDict3(list: List[Int]): ujson.Obj = {
-    // TODO
-    ???
-  }
+    val cubes = list.map(num => num * num * num) 
+    val pairs = list.zip(cubes) 
 
+    ujson.Obj.from(
+      pairs.map { case (original, cube) =>
+        original.toString -> ujson.Num(cube)
+      }
+    )
+  }
+  
   @cask.postJson("/dictStudent")
   def getDictStudent(list: List[Int]): ujson.Obj = {
     // TODO
