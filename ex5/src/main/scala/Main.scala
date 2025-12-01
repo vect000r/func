@@ -48,7 +48,10 @@ object Main extends cask.MainRoutes:
       student -> ujson.Num(totalHours)
     }
 
-    ujson.Obj.from(totals)
+    ujson.Obj(
+      "input" -> sessions,
+      "totals" -> totals
+    )
   }
 
   @cask.postJson("/dictVector")
