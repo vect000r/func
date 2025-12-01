@@ -5,3 +5,10 @@ Content-Type: application/json
 {
   "list": [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 }
+### POST 3.5
+POST http://localhost:8080/dict3
+Content-Type: application/json
+
+{
+  "list": [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+}
