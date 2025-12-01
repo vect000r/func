@@ -12,3 +12,15 @@ Content-Type: application/json
 {
   "list": [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 }
+### POST 4.0
+POST http://localhost:8080/dictStudent
+Content-Type: application/json
+
+{
+  "sessions": [
+    {"student": "Jan", "hours": 2},
+    {"student": "Anna", "hours": 3},
+    {"student": "Gloria", "hours": 5},
+    {"student": "Jan", "hours": 2}
+  ]
+}
