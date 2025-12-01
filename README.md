@@ -66,3 +66,18 @@ Kod: [Link do zadania 4](https://github.com/vect000r/func/tree/master/ex4/src/ma
 
 https://github.com/user-attachments/assets/933d07d3-e0c7-4511-9aee-c1be6becf250
 
+**Zadanie 5**
+
+:white_check_mark: 3.0 zwróci słownik z liczbą powtarzających się liczb za pomocą funkcji mapreduce dla list z liczbami [Link do commita](https://github.com/vect000r/func/commit/68cd77387e70ff8a71ea206396f148dc39d8cd45)
+
+:white_check_mark: 3.5 zwróci słownik z liczbami podniesionymi do sześcianu za pomocą funkcji mapreduce dla list z liczbami [Link do commita](https://github.com/vect000r/func/commit/32d2da4a858a87512d519ad8f0ab115f26985105)
+
+:white_check_mark: 4.0 zwróci słownik (student, godziny nauki), która wykorzysta funkcją mapreduce oraz groupBy dla słownika na wejściu  [Link do commita](https://github.com/vect000r/func/commit/5c1d8499206245a6643ca120f79493aea706491d)
+
+:x: 4.5 zwróci słownik (zdanie, wektor), która wykorzysta funkcję mapreduce oraz bagOfWords
+
+:x: 5.0 zwróci słownik (student, średnia ocen), która wykorzysta funkcję mapreduce oraz join; na wejściu  są dwie listy: (numer_indeksu, student), (numer_indeksu, kurs, ocena)
+
+Kod: [Link do zadania 5](https://github.com/vect000r/func/tree/master/ex5)
+
+https://github.com/user-attachments/assets/502d5b3c-64e9-42ea-a2b9-aaed9c505c8f
