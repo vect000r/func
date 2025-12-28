@@ -4,12 +4,12 @@ name:                ex6
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/ex6#readme
+homepage:            https://github.com/vect000r/func#readme
 license:             BSD-3-Clause
 license-file:        LICENSE
-author:              Author name here
+author:              vect000r
 maintainer:          example@example.com
-copyright:           2025 Author name here
+copyright:           2025 vect000r
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
@@ -19,7 +19,11 @@ executable ex6
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5 , scotty
+  build-depends:       base >= 4.7 && < 5
+                     , scotty
+                     , aeson
+                     , text
+                     , wai-cors
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
@@ -32,4 +36,4 @@ executable ex6
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/ex6
+  location: https://github.com/vect000r/func
