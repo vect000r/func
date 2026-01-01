@@ -26,6 +26,16 @@ data SumThreeRequest = SumThreeRequest
 instance FromJSON SumThreeRequest
 instance ToJSON SumThreeRequest
 
+data SetHeadRequest = SetHeadRequest 
+  { list :: [Int]
+  , element :: Int
+  } deriving (Show, Generic)
+
+instance FromJSON SetHeadRequest
+instance ToJSON SetHeadRequest
+
+
+
 -- Helper functions
 isSorted:: [Int] -> (Int -> Int -> Bool) -> Bool
 isSorted [] _ = True
@@ -55,12 +65,21 @@ sumThreeHandler = do
     req <- jsonData :: ActionM SumThreeRequest
     let result = addLists (addLists (list1 req) (list2 req)) (list3 req)
     json $ object
-        [
-            "input" .= [toJSON (list req), toJSON (element req)],
-            "setHead result" .= newList
+        [ 
+            "input" .= [list1 req, list2 req, list3 req],       
+            "sum" .= result
         ]
 
 
+setHeadHandler :: ActionM ()
+setHeadHandler = do
+  req <- jsonData :: ActionM SetHeadRequest
+  let newList = element req : list req
+  json $ object
+    [ 
+            "input" .= [toJSON (list req), toJSON (element req)],       
+            "setHead result" .= newList
+    ]
 
 -- Main
 main :: IO ()
@@ -68,4 +87,7 @@ main = scotty 8080 $ do
     middleware simpleCors
 
     post "/is-sorted" isSortedHandler
-    post "/sum_three" sumThreeHandler
+    post "/sum-three" sumThreeHandler
+    post "/set-head" setHeadHandler
+
+    
