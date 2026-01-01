@@ -27,13 +27,21 @@ instance FromJSON SumThreeRequest
 instance ToJSON SumThreeRequest
 
 data SetHeadRequest = SetHeadRequest 
-  { list :: [Int]
+  { listSetHead :: [Int]
   , element :: Int
   } deriving (Show, Generic)
 
 instance FromJSON SetHeadRequest
 instance ToJSON SetHeadRequest
 
+data AppendRequest = AppendRequest 
+  { listAppend :: [Int]
+  , index :: Int
+  , elementAppend :: Int
+  } deriving (Show, Generic)
+
+instance FromJSON AppendRequest
+instance ToJSON AppendRequest
 
 
 -- Helper functions
@@ -74,11 +82,25 @@ sumThreeHandler = do
 setHeadHandler :: ActionM ()
 setHeadHandler = do
   req <- jsonData :: ActionM SetHeadRequest
-  let newList = element req : list req
+  let newList = element req : listSetHead req
   json $ object
     [ 
-            "input" .= [toJSON (list req), toJSON (element req)],       
+            "input" .= [toJSON (listSetHead req), toJSON (element req)],       
             "setHead result" .= newList
+    ]
+
+appendHandler :: ActionM ()
+appendHandler = do
+  req <- jsonData :: ActionM AppendRequest
+  let inputList = listAppend req
+  let idx = index req
+  let elem = elementAppend req
+  let (seg1, seg2) = splitAt idx inputList
+  let newList = seg1 ++ [elem] ++ seg2
+  json $ object
+    [ 
+            "input" .= [toJSON inputList, toJSON idx, toJSON elem],       
+            "append result" .= newList
     ]
 
 -- Main
@@ -89,5 +111,5 @@ main = scotty 8080 $ do
     post "/is-sorted" isSortedHandler
     post "/sum-three" sumThreeHandler
     post "/set-head" setHeadHandler
+    post "/append" appendHandler
 
-    
