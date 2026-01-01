@@ -43,6 +43,15 @@ data AppendRequest = AppendRequest
 instance FromJSON AppendRequest
 instance ToJSON AppendRequest
 
+data TwoSquareRequest = TwoSquareRequest 
+  { listTwoSquare1 :: [Int]
+  , listTwoSquare2 :: [Int]
+  } deriving (Show, Generic)
+
+instance FromJSON TwoSquareRequest
+instance ToJSON TwoSquareRequest
+
+
 
 -- Helper functions
 isSorted:: [Int] -> (Int -> Int -> Bool) -> Bool
@@ -103,6 +112,16 @@ appendHandler = do
             "append result" .= newList
     ]
 
+twoSquareHandler :: ActionM ()
+twoSquareHandler = do
+  req <- jsonData :: ActionM TwoSquareRequest
+  let newList = zipWith (\x y -> x*x + y*y) (listTwoSquare1 req) (listTwoSquare2 req)
+  json $ object
+    [  
+            "input" .= [listTwoSquare1 req, listTwoSquare2 req],       
+            "two-square result" .= newList
+    ]
+
 -- Main
 main :: IO ()
 main = scotty 8080 $ do
@@ -112,4 +131,4 @@ main = scotty 8080 $ do
     post "/sum-three" sumThreeHandler
     post "/set-head" setHeadHandler
     post "/append" appendHandler
-
+    post "/two-square" twoSquareHandler
