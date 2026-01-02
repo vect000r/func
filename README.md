@@ -81,3 +81,40 @@ https://github.com/user-attachments/assets/933d07d3-e0c7-4511-9aee-c1be6becf250
 Kod: [Link do zadania 5](https://github.com/vect000r/func/tree/master/ex5)
 
 https://github.com/user-attachments/assets/502d5b3c-64e9-42ea-a2b9-aaed9c505c8f
+
+
+**Zadanie 6**
+
+:white_check_mark: 3.0 Zaimplementuj funkcję isSorted, która sprawdza czy dana funkcja jest posortowana zgodnie z podaną funkcją porównawczą [Link do commita](https://github.com/vect000r/func/commit/cef65334c984f518caddca74c2aba82cd985f68f)
+
+:white_check_mark: 3.5 Zaimplementuj funkcję, która zsumuje liczby po wierszach z trzech list na wejściu; wykorzystaj funkcję sprowadzi funkcję z trzema argumentami, do funkcji z dwoma [Link do commita](https://github.com/vect000r/func/commit/117f7abe49edfebe6bf13eec2ba37bb7bb479fd5)
+
+:white_check_mark: 4.0 Zaimplementuj funkcję setHead, która doda element na początku listy [Link do commita](https://github.com/vect000r/func/commit/6d7f9af1a2db60475009de256c6e34d417cda612)
+
+:white_check_mark: 4.5 Zaimplementuj funkcję append, która doda element we wskazanym miejscu w liście [Link do commita](https://github.com/vect000r/func/commit/3c2796d39226e7d8f29617ebe291a4a26e85eb92)
+
+:white_check_mark: 5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej [Link do commita](https://github.com/vect000r/func/commit/5052bd2b2867f7f864e80c7a99484236afcc82c9)
+
+Kod: [Link do zadania 6](https://github.com/vect000r/func/tree/master/ex6)
+
+
+
+
+https://github.com/user-attachments/assets/581ebf58-abf7-4ccf-95eb-b9135f0755a5
+
+**Zadanie 7**
+
+:white_check_mark: 3.0 zwróci wartość między 0, a maxvalue of Int włącznie[Link do commita](https://github.com/vect000r/func/commit/e3a670f87b091ab5220f0b375e3d3b0807616415)
+
+:white_check_mark: 3.5 zwróci wartość między 0, a 1 (Double) z wyłączeniem 1 [Link do commita](https://github.com/vect000r/func/commit/d2318cb1e9d707f9a04c675c4a97f87407ae9fad)
+
+:white_check_mark: 4.0 zwróci pary (Int, Double), (Double, Int) oraz krotki (Double, Double, Double) wykorzystując funkcje z ocen 3.0 oraz 3.5 [Link do commita](https://github.com/vect000r/func/commit/6f0b7eb8884db278be37f57616abd2ebb2b7d1e5)
+
+:x: 4.5 zwróci wartość jak w funkcji 3.5, ale wykorzysta map 
+:x: 5.0 zwróci wartość jak w funkcji 3.5, ale wykorzysta flatMap
+
+Kod: [Link do zadania 7](https://github.com/vect000r/func/tree/master/ex7)
+
+https://github.com/user-attachments/assets/d07d4d15-ffcd-4f10-84ce-9c421bcc7b40
+
+
