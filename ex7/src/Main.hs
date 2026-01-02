@@ -24,6 +24,14 @@ data RandomDoubleResponse = RandomDoubleResponse
 
 instance ToJSON RandomDoubleResponse
 
+data PairsTripleResponse = PairsTripleResponse
+    { pairIntDouble :: (Int, Double)
+    , pairDoubleInt :: (Double, Int)
+    , triple :: (Double, Double, Double)
+    } deriving (Show, Generic)
+
+instance ToJSON PairsTripleResponse
+
 -- Helper functions
 randomInt :: IO Int
 randomInt = randomRIO (0, maxBound :: Int)
@@ -47,6 +55,20 @@ randomDoubleHandler = do
     val <- liftIO randomDouble
     json $ RandomDoubleResponse val
 
+pairsTripleHandler :: ActionM ()
+pairsTripleHandler = do
+    intVal <- liftIO randomInt
+    doubleVal1 <- liftIO randomDouble
+    doubleVal2 <- liftIO randomDouble
+    doubleVal3 <- liftIO randomDouble
+    
+    let pair1 = (intVal, doubleVal1)
+    let pair2 = (doubleVal2, intVal)
+    let tripleVal = (doubleVal1, doubleVal2, doubleVal3)
+    
+    json $ PairsTripleResponse pair1 pair2 tripleVal
+
+
 -- Main
 main :: IO ()
 main = scotty 3000 $ do
@@ -54,3 +76,4 @@ main = scotty 3000 $ do
 
     get "/3.0" randomIntHandler
     get "/3.5" randomDoubleHandler
+    get "/4.0" pairsTripleHandler
