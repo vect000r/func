@@ -12,3 +12,8 @@ curl -X POST $BASE_URL/api/is-prime \
   -d '{"number": 17}' | jq
 echo ""
 
+echo -e "${GREEN}=== Test 1: Sortowanie listy (Promise) ===${NC}"
+curl -X POST $BASE_URL/api/sort \
+  -H "Content-Type: application/json" \
+  -d '{"array": [9, 2, 7, 5, 10, 3, 1]}' | jq
+echo ""

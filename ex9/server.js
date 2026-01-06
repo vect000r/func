@@ -37,6 +37,36 @@ app.post('/api/is-prime', async (req, res) => {
   }
 });
 
+// ============================================
+// 3.5 - Sortowanie listy z Promise
+// ============================================
+
+function sortArrayPromise(arr) {
+  return new Promise((resolve, reject) => {
+    if (!Array.isArray(arr)) {
+      return reject(new Error('Wejście musi być tablicą'));
+    }
+
+    setTimeout(() => {
+      try {
+        const sorted = [...arr].sort((a, b) => a - b);
+        resolve(sorted);
+      } catch (error) {
+        reject(error);
+      }
+    }, 0);
+  });
+}
+
+app.post('/api/sort', async (req, res) => {
+  try {
+    const { array } = req.body;
+    const sorted = await sortArrayPromise(array);
+    res.json({ original: array, sorted });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
 process.on('SIGTERM', async () => {
   console.log('Closing...');
@@ -47,3 +77,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server's working on ${PORT}`);
 });
+
