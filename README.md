@@ -117,4 +117,37 @@ Kod: [Link do zadania 7](https://github.com/vect000r/func/tree/master/ex7)
 
 https://github.com/user-attachments/assets/d07d4d15-ffcd-4f10-84ce-9c421bcc7b40
 
+**Zadanie 8**
+
+:white_check_mark: 3.0 wykorzysta metodę map fuktora do wykonania funkcji dodawania lub odejmowania na dwóch wartość przyjętych na wejściu[Link do commita](https://github.com/vect000r/func/commit/3b16acecdd02d67108d01848abf4005e72740338)
+
+:x: 3.5  zwróci wartość konkatenacji trzech list za pomocą monoidy
+
+:x: 4.0  zwróci wartość sumy listy liczb lub zwróci nil; zaimplementuj wykorzystując monady
+
+:x: 4.5  zwróci zadanie z zestawy 6 na ocenę 4.0 i wykorzysta metodę combine oraz join
+
+:x: 5.0 zwróci dla listy minimum 3 elementów typu int mapę: liczba elementów, suma,  wartość minimalna, wartość maksymalna; wykorzysta do tego monadę oraz metodę foldMap
+
+
+Kod: [Link do zadania 8](https://github.com/vect000r/func/tree/master/ex8)
+
+https://github.com/user-attachments/assets/76504964-b9fa-4c3e-b42c-923721c92107
+
+
+**Zadanie 9**
+
+:white_check_mark: 3.0 zwróci wartość binarną czy podana na wejściu liczba jest liczbą pierwszą; wykorzysta Promise[Link do commita](https://github.com/vect000r/func/commit/a8e22a3de23caa3459ee59e9ed0c7aa8e4a137fa)
+
+:white_check_mark: 3.5 zwróci posortowaną listę; wykorzysta Promise [Link do commita](https://github.com/vect000r/func/commit/1b7061a7405e1d78931e025d38ebbe9870d755bc)
+
+:x: 4.0  zwróci wynik funkcji z zad. 5 na 4.0 (mapreduce); wykorzysta worker_threads
+
+:x: 4.5  zwróci wynik bagOfWords dla danego tekstu na wejściu; stworzy pulę workterów
+
+:x: 5.0 zwróci wynik funkcji z zad. 5 na 4.5; wykorzysta Promise.all oraz funkcję map
+
+Kod: [Link do zadania 9](https://github.com/vect000r/func/tree/master/ex9)
+
+https://github.com/user-attachments/assets/53e14ed9-622a-42e7-b147-93518b730b3c
 
