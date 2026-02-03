@@ -1,7 +1,7 @@
 const { app } = require("@azure/functions");
 
 function isZero(num) {
-    return num == 0;
+    return num === 0;
 }
 
 app.http("function2", {
