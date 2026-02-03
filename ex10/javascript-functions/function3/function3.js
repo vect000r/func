@@ -24,7 +24,7 @@ app.http("function2", {
 
         return {
             status: 200,
-            jsonBody: { isZero: isZero(num) },
+            jsonBody: { isPrime: isPrime(num) },
         };
     },
 });
