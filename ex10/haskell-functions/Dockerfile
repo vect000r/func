@@ -1,12 +1,13 @@
-FROM haskell:latest
+FROM haskell:9.4
 
-RUN cabal update && \
-    cabal install --lib scotty aeson text mtl
+WORKDIR /app
 
-COPY main.hs .
+COPY stack.yaml ex10.cabal ./
 
-RUN ghc --make -threaded main.hs -o app
+RUN stack update && stack build --only-dependencies
 
-EXPOSE 3000
+COPY . .
 
-CMD ["./app"]
+RUN stack build
+
+CMD ["stack", "exec", "ex10"]

@@ -10,6 +10,7 @@ import Network.Wai.Middleware.Cors
 import Control.Monad.IO.Class (liftIO)
 import qualified Data.Text.Lazy as TL
 import Text.Read (readMaybe)
+import Data.Char (toLower)
 
 -- Response types
 data NumberResult = NumberResult
@@ -20,7 +21,7 @@ data NumberResult = NumberResult
 instance ToJSON NumberResult
 
 data SumResult = SumResult
-    { sum :: Int
+    { sumValue :: Int
     } deriving (Generic, Show)
 
 instance ToJSON SumResult
@@ -41,8 +42,8 @@ sumOfDigits n = sum [read [c] :: Int | c <- show (abs n)]
 
 isPalindromeStr :: String -> Bool
 isPalindromeStr s = cleaned == reverse cleaned
-    where cleaned = filter (/= ' ') (map toLower s)
-        where toLower c = if c >= 'A' && c <= 'Z' then toEnum (fromEnum c + 32) else c
+    where 
+        cleaned = filter (/= ' ') (map toLower s)
 
 -- Endpoint handlers
 oddEvenHandler :: ActionM ()
