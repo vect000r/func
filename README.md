@@ -151,3 +151,17 @@ Kod: [Link do zadania 9](https://github.com/vect000r/func/tree/master/ex9)
 
 https://github.com/user-attachments/assets/53e14ed9-622a-42e7-b147-93518b730b3c
 
+
+**Zadanie 10**
+
+Link do kodu Haskell: [haskell-functions](https://github.com/vect000r/func/tree/master/ex10/haskell-functions)
+Link do kodu JS: [javascript-functions](https://github.com/vect000r/func/tree/master/ex10/javascript-functions)
+
+Link do deploya Haskell: [haskell](https://ex10-haskell-dkaxbph6fye7g0af.polandcentral-01.azurewebsites.net/)
+Link do deploya js: [JS](https://ex10-js.azurewebsites.net/)
+
+
+
+https://github.com/user-attachments/assets/f24d69f7-e794-4b6b-abf2-b5d4717f1810
+
+
