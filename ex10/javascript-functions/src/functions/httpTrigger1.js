@@ -1,18 +1,18 @@
 const { app } = require("@azure/functions");
 
-function isZero(num) {
-    return num === 0;
+function multiply(num1, num2) {
+    return num1 * num2
 }
 
-app.http("function2", {
+app.http("httpTrigger1", {
     methods: ["POST"],
     authLevel: "anonymous",
     handler: async (request, context) => {
-        const { num } = await request.json();
+        const { num1, num2 } = await request.json();
 
         return {
             status: 200,
-            jsonBody: { isZero: isZero(num) },
+            jsonBody: { product: multiply(num1, num2) },
         };
     },
 });

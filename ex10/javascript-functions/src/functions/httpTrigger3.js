@@ -3,7 +3,7 @@ const { app } = require("@azure/functions");
 function isPrime(num) {
     if ( num <= 1 ) return false;
 
-    if ( num === 2) return false;
+    if ( num === 2) return true;
 
     if ( num % 2 === 0 ) return false;
 
@@ -16,7 +16,7 @@ function isPrime(num) {
     return true;
 }
 
-app.http("function2", {
+app.http("httpTrigger3", {
     methods: ["POST"],
     authLevel: "anonymous",
     handler: async (request, context) => {
